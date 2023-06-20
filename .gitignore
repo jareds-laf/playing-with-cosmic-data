@@ -1,0 +1,12 @@
+filterbank/.ipynb_checkpoints/*
+
+filterbank/hits/*
+
+filterbank/Band_Test_BD_C0-beam0001.fil
+filterbank/Band_Test_BD_C512-beam0001.fil             
+filterbank/band_test_AC_C32-beam0001.fil              
+filterbank/band_test_AC_C512-beam0001.fil
+filterbank/band_test_AC_C544-beam0001.fil
+filterbank/band_test_GPU3_BD_C32-beam0001.fil
+filterbank/hits_collation.csv
+
