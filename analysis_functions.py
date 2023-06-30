@@ -29,7 +29,7 @@ def plot_tavg_power(wf_in, t=0,
     # p_start: Lower bound for time-averaged power (veritcal) axis
 
     wf_pwr_mean = np.mean(wf_in.data, axis=0)
-    wf_pwr_mean_integration = wf_pwr_mean[t]
+    wf_pwr_mean_integration = wf_pwr_mean[t] #TODO: Why is this t???
     
     print(f'Extracting integration {t}...')
     
