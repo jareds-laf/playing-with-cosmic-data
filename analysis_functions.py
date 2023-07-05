@@ -13,7 +13,7 @@ import scipy
 import numpy.ma as ma
 import seaborn as sns
 
-def plot_tavg_power(wf_in, t=0,
+def plot_tavg_power(wf_in,
                     f_start=0, f_stop=6000,
                     p_start=0, p_stop=5*10**10):
 
@@ -29,9 +29,7 @@ def plot_tavg_power(wf_in, t=0,
     # p_start: Lower bound for time-averaged power (veritcal) axis
 
     wf_pwr_mean = np.mean(wf_in.data, axis=0)
-    wf_pwr_mean_integration = wf_pwr_mean[t] #TODO: Why is this t???
-    
-    print(f'Extracting integration {t}...')
+    wf_pwr_mean_integration = wf_pwr_mean[0]
     
     fig, ax = plt.subplots()
     ax.set_xlim(f_start, f_stop)
