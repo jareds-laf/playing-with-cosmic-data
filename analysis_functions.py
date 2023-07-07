@@ -3,15 +3,11 @@ import matplotlib.pyplot as plt
 import pylab as plt
 import blimpy
 from blimpy import Waterfall
-from blimpy import calcload
-import os
 import glob
 import numpy as np
 import time
 from scipy.stats import norm, kurtosis, kurtosistest
 import scipy
-import numpy.ma as ma
-import seaborn as sns
 
 def plot_tavg_power(wf_in,
                     f_start=0, f_stop=6000,
@@ -54,7 +50,7 @@ def plot_tavg_power(wf_in,
         # Bin frequencies
         bins = []
         for chnl in freqs:
-            bins.append(np.floor(chnl[0]))
+            bins.append((chnl[0]))
         
 
         # Plot time-averaged power with frequencies of infinite kurtosis flagged
@@ -72,8 +68,10 @@ def plot_tavg_power(wf_in,
         inf_kurts = []
         for i in inf_kurt[0]:
             inf_kurts.append(bins[i])
-            plt.axvline(x=bins[i], ymin=0, ymax=10, c='r', ls='--')
-
+            inf_line = plt.axvline(x=bins[i], ymin=0, ymax=10, c='r', ls='--')
+      
+        inf_line.set_label('Channels with infinite kurtosis')
+        ax.legend(fancybox=True, shadow=True, loc='center right', bbox_to_anchor=(0.5, 1.05))
         plt.show()
     else:
         # Plot time-averaged power only
@@ -84,7 +82,7 @@ def plot_tavg_power(wf_in,
         ax.set_ylabel('Time-Averaged Power (Counts)')
 
         ax.plot(wf_in.get_freqs(), wf_pwr_mean_integration)
-        plt.show()
+#         plt.show()
 
     
 
